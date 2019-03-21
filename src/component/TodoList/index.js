@@ -1,5 +1,6 @@
 import React from 'react';
-import TodoItem from './TodoItem';
+import TodoItem from '../TodoItem';
+import './my.css'
 
 class TodoList extends React.Component {
   constructor(props){
@@ -10,7 +11,7 @@ class TodoList extends React.Component {
     }
     this.onHandleChange = this.onHandleChange.bind(this);
     this.onHandleClick = this.onHandleClick.bind(this);
-    // this.onHandelDeleteClick = this.onHandelDeleteClick.bind(this);
+    this.onHandelDeleteClick = this.onHandelDeleteClick.bind(this);
   }
 
   onHandleChange(e){
@@ -39,14 +40,18 @@ class TodoList extends React.Component {
   getToListItem(){
      return this.state.list.map( (item,index) =>{
         // 子组件与父组件通讯, 定义一个方法属性，如：delete并绑定对应事件处理函数(onHandelDeleteClick)，当delete事件触发时回调执行事件处理函数(onHandelDeleteClick)
-        return <TodoItem key={index} index={index} item={item} delete={this.onHandelDeleteClick.bind(this,index)}/>
+        return <TodoItem 
+                  key={index} 
+                  index={index} 
+                  item={item} 
+                  delete={this.onHandelDeleteClick}/>
       } )
   }
 
   render() {
     return (
       <div>
-          <input  type='text' value={this.state.inputValue} onChange={this.onHandleChange}/><button onClick={this.onHandleClick}>添加</button>
+          <input  type='text' value={this.state.inputValue} onChange={this.onHandleChange}/><button className='btn-blue' onClick={this.onHandleClick}>添加</button>
           <ul>
             {this.getToListItem()}
           </ul>

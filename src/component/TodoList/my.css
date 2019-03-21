@@ -1,0 +1,12 @@
+.btn-blue{
+    background-color: blue;
+    width: 100px;
+    color: red;
+}
+.list-item{
+    list-style: none;
+    background-color: green;
+    line-height: 60px;
+    margin-top: 5px;
+    color: white;
+}
